@@ -1,5 +1,4 @@
 opam-version: "2.0"
-name: "overseer"
 maintainer: "ex@ample.com"
 
 version: "0.1"
