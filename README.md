@@ -7,14 +7,14 @@ Example library/application code written in Ocaml using janestreet opensource li
 
 ## Table of Contents
 - [Example Patterns in Ocaml](#example-patterns-in-ocaml)
-  - [Table of Contents](#table-of-contents)
-  - [Broker](#broker)
-  - [Http](#http)
-  - [bin prot util](#bin-prot-util)
-  - [python util](#python-util)
-  - [src](#src)
-  - [bin](#bin)
-  - [test](#test)
+- [Table of Contents](#table-of-contents)
+- [Broker](#broker)
+- [Http](#http)
+- [bin prot util](#bin-prot-util)
+- [python util](#python-util)
+- [src](#src)
+- [bin](#bin)
+- [test](#test)
 
 
 <br/>
