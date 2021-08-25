@@ -1,0 +1,36 @@
+opam-version: "2.0"
+name: "overseer"
+maintainer: "ex@ample.com"
+
+version: "0.1"
+build: [
+  [ "dune" "subst" ] {pinned}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+depends: [
+  "dune"
+  "core" 
+  "async" 
+  "ocamlformat" 
+  "ppx_jane"
+  "ppx_log"
+  "ppx_expect"
+  "pythonlib"
+  "ppx_python"
+  "ppx_bin_prot"
+  "ppx_csv_conv" 
+  "ppx_sexp_value" 
+  "ppx_sexp_message"
+  "ppx_yojson_conv"
+  "ppx_import"
+  "opam-lock"
+  "utop"
+  "merlin"
+  "ocamlformat"
+  "uri"
+  "httpaf"
+  "websocketaf"
+  "websocketaf-async"
+  "digestif"
+  "ocaml-lsp-server" {dev}
+]

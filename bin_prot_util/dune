@@ -1,0 +1,6 @@
+(library
+ (inline_tests)
+ (name bin_prot_util)
+ (libraries core core.uuid core.bigstring_unix core.core_unix)
+ (preprocess
+  (pps ppx_jane)))

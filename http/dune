@@ -1,0 +1,14 @@
+(library
+ (name http)
+ (preprocess
+  (pps ppx_jane))
+ (libraries
+  httpaf
+  uri
+  httpaf-async
+  fpath
+  websocketaf
+  websocketaf-async
+  astring
+  str
+  digestif))

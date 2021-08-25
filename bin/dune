@@ -1,0 +1,15 @@
+(executable
+ (name test)
+ (modules test)
+ (public_name test)
+ (libraries core core.command_unix async lib)
+ (preprocess
+  (pps ppx_jane)))
+
+(executable
+ (name topic_server)
+ (modules topic_server)
+ (public_name topic_server)
+ (libraries core core.command_unix async lib)
+ (preprocess
+  (pps ppx_jane)))

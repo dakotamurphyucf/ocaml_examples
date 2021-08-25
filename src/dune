@@ -1,0 +1,23 @@
+(library
+ (inline_tests)
+ (name lib)
+ (libraries
+  core
+  async
+  ppx_rapper.runtime
+  ppx_rapper_async
+  caqti
+  caqti-async
+  caqti-driver-postgresql
+  broker
+  yojson
+  http)
+ (preprocess
+  (pps
+   ppx_jane
+   ppx_yojson_conv
+   ppx_python
+   ppx_string
+   ppx_csv_conv
+   ppx_log
+   ppx_rapper)))

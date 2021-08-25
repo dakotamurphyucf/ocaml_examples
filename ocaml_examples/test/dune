@@ -1,0 +1,8 @@
+(library
+ (name ocaml_patterns_test)
+ (libraries core lib)
+ (inline_tests
+  (deps
+   (source_tree test_data)))
+ (preprocess
+  (pps ppx_jane)))
