@@ -1,5 +1,0 @@
-(library
- (name broker)
- (libraries async async.persistent_connection core)
- (preprocess
-  (pps ppx_jane)))

@@ -1,6 +1,0 @@
-(library
- (inline_tests)
- (name python_util)
- (libraries core core.uuid core.bigstring_unix core.core_unix pyml pythonlib)
- (preprocess
-  (pps ppx_jane ppx_python)))
