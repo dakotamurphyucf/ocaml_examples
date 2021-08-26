@@ -13,3 +13,13 @@
  (libraries core core.command_unix async lib)
  (preprocess
   (pps ppx_jane)))
+
+(executable
+ (name pywrap)
+ (modules pywrap)
+ (preprocess
+  (staged_pps ppx_jane ppx_let ppx_python ppx_deriving.show))
+ (libraries core pyml pythonlib python_util)
+ (flags :standard -linkall)
+ (modes
+  (native shared_object)))
