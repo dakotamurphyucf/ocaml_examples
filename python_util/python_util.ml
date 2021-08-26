@@ -70,19 +70,6 @@ let tbl_of_python
   M.of_alist_exn assoc
 ;;
 
-let tbl_of_python_int
-    (type b)
-    (module M : Hashtbl.S with type key = int)
-    (module P : Pythonable with type t = b)
-    value
-  =
-  let assoc =
-    Py.Dict.to_bindings value
-    |> List.map ~f:(fun (key, value) -> int_of_python key, P.t_of_python value)
-  in
-  M.of_alist_exn assoc
-;;
-
 module Make_python_hashble
     (K : Pythonable)
     (V : Pythonable)
