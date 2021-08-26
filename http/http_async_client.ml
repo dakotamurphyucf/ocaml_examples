@@ -61,25 +61,24 @@ module Https = struct
       let where_to_connect = Tcp.Where_to_connect.of_host_and_port { host; port } in
       Tcp.connect_sock where_to_connect
       >>= fun socket ->
-      [%bind
-        let conn = Httpaf_async.Client.SSL.create_connection_with_default socket in
-        let request = Request.as_httpaf req in
-        let finished = Ivar.create () in
-        let response_handler response response_body =
-          Ivar.fill finished (Ok (response, response_body))
-        in
-        let error_handler error =
-          Result.Error (`Connection_error error) |> Ivar.fill finished
-        in
-        let request_body =
-          Httpaf_async.Client.SSL.request ~error_handler ~response_handler conn request
-        in
-        (match body with
-        | Some body -> Httpaf.Body.Writer.write_string request_body body
-        | None -> ());
-        Httpaf.Body.Writer.flush request_body (fun () ->
-            Httpaf.Body.Writer.close request_body);
-        Ivar.read finished]
+      let%bind conn = Httpaf_async.Client.SSL.create_connection_with_default socket in
+      let request = Request.as_httpaf req in
+      let finished = Ivar.create () in
+      let response_handler response response_body =
+        Ivar.fill finished (Ok (response, response_body))
+      in
+      let error_handler error =
+        Result.Error (`Connection_error error) |> Ivar.fill finished
+      in
+      let request_body =
+        Httpaf_async.Client.SSL.request ~error_handler ~response_handler conn request
+      in
+      (match body with
+      | Some body -> Httpaf.Body.Writer.write_string request_body body
+      | None -> ());
+      Httpaf.Body.Writer.flush request_body (fun () ->
+          Httpaf.Body.Writer.close request_body);
+      Ivar.read finished
     ;;
   end)
 
