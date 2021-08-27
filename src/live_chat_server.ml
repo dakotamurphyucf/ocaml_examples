@@ -32,9 +32,9 @@ let transform_topic_for_server topic =
   let open Directory in
   let rec aux acc = function
     | [] -> List.rev acc
-    | "*" :: rest -> aux (Star :: acc) rest
-    | "#" :: rest -> aux (Hashtag :: acc) rest
-    | word :: rest -> aux (Word word :: acc) rest
+    | "*" :: rest -> aux (Wildcard :: acc) rest
+    | "#" :: rest -> aux (Wildcard's :: acc) rest
+    | name :: rest -> aux (Name name :: acc) rest
   in
   aux [] (Topic.to_list topic)
 ;;

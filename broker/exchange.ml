@@ -164,7 +164,7 @@ module MakeExchange (Exchange : Exchange) = struct
       ]
     ;;
 
-    let server ~port =
+    let start ~port =
       let exchange = Exchange.create () in
       let implementations =
         Rpc.Implementations.create_exn

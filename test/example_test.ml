@@ -2,7 +2,7 @@ open Core
 open Lib
 
 let%expect_test "test" =
-  let user = { User.name = "dakota"; age = 27 } in
+  let user = { User.name = "dakota"; country = "united states" } in
   print_s [%sexp (user : User.t)];
-  [%expect {| ((name dakota) (age 27)) |}]
+  [%expect {| ((name dakota) (country united states)) |}]
 ;;

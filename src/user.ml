@@ -2,6 +2,6 @@ open Core
 
 type t =
   { name : string
-  ; age : int
+  ; country : string
   }
 [@@deriving sexp, bin_io, compare, fields, yojson]

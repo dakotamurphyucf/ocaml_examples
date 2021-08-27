@@ -6,18 +6,18 @@ module Make (Message : Message) = struct
   module Topic = struct
     module Directory = struct
       type t =
-        | Hashtag
-        | Star
-        | Word of string
+        | Wildcard's
+        | Wildcard
+        | Name of string
       [@@deriving sexp, hash, bin_io, compare]
     end
 
     type t = Directory.t list [@@deriving sexp, bin_io, hash, compare]
 
     let string_of_directory = function
-      | Directory.Hashtag -> "#"
-      | Star -> "*"
-      | Word str -> str
+      | Directory.Wildcard's -> "#"
+      | Wildcard -> "*"
+      | Name str -> str
     ;;
 
     let to_string = function
@@ -168,31 +168,31 @@ module Make (Message : Message) = struct
           List.fold_left nodes ~init:[] ~f:(fun nodes node ->
               let nodes =
                 match hd with
-                | Topic.Directory.Hashtag ->
-                  (match Hashtbl.find node.children Hashtag with
+                | Topic.Directory.Wildcard's ->
+                  (match Hashtbl.find node.children Wildcard's with
                   | None -> nodes
                   | Some node -> node :: nodes)
-                | Star ->
+                | Wildcard ->
                   let nodes =
-                    match Hashtbl.find node.children Star with
+                    match Hashtbl.find node.children Wildcard with
                     | None -> nodes
                     | Some node -> node :: nodes
                   in
-                  (match Hashtbl.find node.children Hashtag with
+                  (match Hashtbl.find node.children Wildcard's with
                   | None -> nodes
                   | Some node -> node :: nodes)
-                | Word _ as hd ->
+                | Name _ as hd ->
                   let nodes =
                     match Hashtbl.find node.children hd with
                     | None -> []
                     | Some node -> [ node ]
                   in
                   let nodes =
-                    match Hashtbl.find node.children Star with
+                    match Hashtbl.find node.children Wildcard with
                     | None -> nodes
                     | Some node -> node :: nodes
                   in
-                  (match Hashtbl.find node.children Hashtag with
+                  (match Hashtbl.find node.children Wildcard's with
                   | None -> nodes
                   | Some node -> node :: nodes)
               in
@@ -200,8 +200,8 @@ module Make (Message : Message) = struct
               | Root -> nodes
               | Leaf (_, dir) ->
                 (match dir with
-                | Hashtag -> node :: nodes
-                | Star | Word _ -> nodes))
+                | Wildcard's -> node :: nodes
+                | Wildcard | Name _ -> nodes))
         in
         aux tl nodes
     in
