@@ -2,9 +2,24 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - command: |
-      ocaml -version
-    
+  - init: |
+      opam pin add faraday https://github.com/dakotamurphyucf/faraday.git -y
+      opam pin add faraday-async https://github.com/dakotamurphyucf/faraday.git -y
+      opam pin add gluten https://github.com/anmonteiro/gluten.git -y
+      opam pin add gluten-async https://github.com/anmonteiro/gluten.git -y
+      opam pin add httpaf https://github.com/dakotamurphyucf/httpaf.git -y
+      opam pin add httpaf-async https://github.com/dakotamurphyucf/httpaf.git -y
+      opam pin add websocketaf https://github.com/dakotamurphyucf/websocketaf.git -y
+      opam pin add websocketaf-async https://github.com/dakotamurphyucf/websocketaf.git -y
+      opam pin https://github.com/dakotamurphyucf/ocaml-caqti.git -n
+      opam install -y core async ppx_jane ppx_log ppx_expect \
+      pythonlib ppx_bin_prot ppx_csv_conv \
+      ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv \ 
+      uri httpaf-async websocketaf-async ppx_rapper_async caqti-driver-postgresql
+      eval $(opam env)
+
+  - command: 
+      dune build
 vscode:
   extensions:
     - ocamllabs.ocaml-platform

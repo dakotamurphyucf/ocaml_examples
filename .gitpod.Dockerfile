@@ -19,16 +19,4 @@ RUN opam repo add janestreet-bleeding https://ocaml.janestreet.com/opam-reposito
 RUN opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git#external-packages
 RUN opam update
 
-RUN opam pin add faraday https://github.com/dakotamurphyucf/faraday.git -y
-RUN opam pin add faraday-async https://github.com/dakotamurphyucf/faraday.git -y
-RUN opam pin add gluten https://github.com/anmonteiro/gluten.git -y
-RUN opam pin add gluten-async https://github.com/anmonteiro/gluten.git -y
-RUN opam pin add httpaf https://github.com/dakotamurphyucf/httpaf.git -y
-RUN opam pin add httpaf-async https://github.com/dakotamurphyucf/httpaf.git -y
-RUN opam pin add websocketaf https://github.com/dakotamurphyucf/websocketaf.git -y
-RUN opam pin add websocketaf-async https://github.com/dakotamurphyucf/websocketaf.git -y
-
-RUN opam install -y dune base core async merlin ocamlformat \ 
-ppx_jane ppx_log ppx_expect pythonlib ppx_bin_prot ppx_csv_conv \
-ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv ocaml-lsp-server utop uri httpaf websocketaf websocketaf-async digestif
-RUN eval $(opam env)
+RUN opam install -y dune base merlin ocamlformat ocaml-lsp-server utop
