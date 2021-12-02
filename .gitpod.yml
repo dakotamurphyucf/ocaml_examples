@@ -1,6 +1,15 @@
 image:
   file: .gitpod.Dockerfile
 
+tasks:
+  - command: |
+      ocaml -version
+    
+vscode:
+  extensions:
+    - ocamllabs.ocaml-platform
+    - eamodio.gitlens
+
 github:
   prebuilds:
     # enable for the master/default branch (defaults to true)
