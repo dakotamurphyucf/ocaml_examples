@@ -19,4 +19,4 @@ RUN opam repo add janestreet-bleeding https://ocaml.janestreet.com/opam-reposito
 RUN opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git#external-packages
 RUN opam update
 
-RUN opam install dune base merlin ocamlformat ppx_jane ocaml-lsp-server
+RUN opam install dune base merlin ocamlformat ppx_jane ocaml-lsp-server -y
