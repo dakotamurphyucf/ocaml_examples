@@ -30,5 +30,5 @@ RUN opam pin add websocketaf-async https://github.com/dakotamurphyucf/websocketa
 
 RUN opam install -y dune base core async merlin ocamlformat \ 
 ppx_jane ppx_log ppx_expect pythonlib ppx_bin_prot ppx_csv_conv \
-ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv ppx_import ocaml-lsp-server utop uri httpaf websocketaf websocketaf-async digestif -y
+ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv ocaml-lsp-server utop uri httpaf websocketaf websocketaf-async digestif
 RUN eval $(opam env)
