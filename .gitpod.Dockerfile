@@ -20,3 +20,13 @@ RUN opam repo add janestreet-bleeding-external https://github.com/janestreet/opa
 RUN opam update
 
 RUN opam install -y dune base merlin ocamlformat ocaml-lsp-server utop
+
+RUN opam pin add faraday https://github.com/dakotamurphyucf/faraday.git -y
+RUN opam pin add faraday-async https://github.com/dakotamurphyucf/faraday.git -y
+RUN opam pin add gluten https://github.com/anmonteiro/gluten.git -y
+RUN opam pin add gluten-async https://github.com/anmonteiro/gluten.git -y
+RUN opam pin add httpaf https://github.com/dakotamurphyucf/httpaf.git -y
+RUN opam pin add httpaf-async https://github.com/dakotamurphyucf/httpaf.git -y
+RUN opam pin add websocketaf https://github.com/dakotamurphyucf/websocketaf.git -y
+RUN opam pin add websocketaf-async https://github.com/dakotamurphyucf/websocketaf.git -y
+RUN opam pin https://github.com/dakotamurphyucf/ocaml-caqti.git -y -n
