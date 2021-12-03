@@ -3,9 +3,8 @@ image:
 
 tasks:
   - name: install-opam
-    init: |
-      opam install -y core async ppx_jane ppx_log ppx_expect pythonlib ppx_bin_prot ppx_csv_conv ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv uri httpaf-async websocketaf-async ppx_rapper_async caqti-driver-postgresql
-      dune build
+    init: >
+      opam install -y core async ppx_jane ppx_log ppx_expect pythonlib ppx_bin_prot ppx_csv_conv ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv uri httpaf-async websocketaf-async ppx_rapper_async caqti-driver-postgresql && dune build
     command: eval $(opam env)
 vscode:
   extensions:
