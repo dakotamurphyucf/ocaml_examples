@@ -30,3 +30,5 @@ RUN opam pin add httpaf-async https://github.com/dakotamurphyucf/httpaf.git -y
 RUN opam pin add websocketaf https://github.com/dakotamurphyucf/websocketaf.git -y
 RUN opam pin add websocketaf-async https://github.com/dakotamurphyucf/websocketaf.git -y
 RUN opam pin https://github.com/dakotamurphyucf/ocaml-caqti.git -y -n
+RUN opam install -y core async ppx_jane ppx_log ppx_expect pythonlib ppx_bin_prot ppx_csv_conv ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv uri httpaf-async websocketaf-async ppx_rapper_async caqti-driver-postgresql
+RUN eval $(opam env)
