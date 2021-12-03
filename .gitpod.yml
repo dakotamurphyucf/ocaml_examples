@@ -12,14 +12,9 @@ tasks:
       opam pin add websocketaf https://github.com/dakotamurphyucf/websocketaf.git -y
       opam pin add websocketaf-async https://github.com/dakotamurphyucf/websocketaf.git -y
       opam pin https://github.com/dakotamurphyucf/ocaml-caqti.git -y -n
-      opam install -y core async ppx_jane ppx_log ppx_expect \
-      pythonlib ppx_bin_prot ppx_csv_conv \
-      ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv \ 
-      uri httpaf-async websocketaf-async ppx_rapper_async caqti-driver-postgresql
-      eval $(opam env)
-
-  - command: 
+      opam install -y core async ppx_jane ppx_log ppx_expect pythonlib ppx_bin_prot ppx_csv_conv ppx_python ppx_sexp_value ppx_sexp_message ppx_yojson_conv uri httpaf-async websocketaf-async ppx_rapper_async caqti-driver-postgresql
       dune build
+  - command: eval $(opam env)
 vscode:
   extensions:
     - ocamllabs.ocaml-platform
