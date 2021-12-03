@@ -80,4 +80,5 @@ __pycache__
 !requirements.txt
 !es_scanmeta_mapping.json
 !ocaml/test/scan_data/*/*.json
+!.devcontainer/devcontainer.json
 .ipynb_checkpointsz

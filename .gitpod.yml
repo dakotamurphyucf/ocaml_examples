@@ -3,7 +3,7 @@ image:
 
 tasks:
   - name: main
-    command: eval $(opam env)
+    command: dune build
 vscode:
   extensions:
     - ocamllabs.ocaml-platform
