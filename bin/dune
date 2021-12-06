@@ -2,7 +2,7 @@
  (name test)
  (modules test)
  (public_name test)
- (libraries core core.command_unix async lib)
+ (libraries core core_unix.command_unix async lib)
  (preprocess
   (pps ppx_jane)))
 
@@ -10,7 +10,7 @@
  (name topic_server)
  (modules topic_server)
  (public_name topic_server)
- (libraries core core.command_unix async lib)
+ (libraries core core_unix.command_unix async lib)
  (preprocess
   (pps ppx_jane)))
 

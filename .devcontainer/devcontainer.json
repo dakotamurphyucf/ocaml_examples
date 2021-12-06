@@ -2,8 +2,8 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.183.0/containers/alpine
 {
     "dockerFile": "Dockerfile",
-    "remoteUser": "opam",
+    "remoteUser": "gitpod",
     "extensions": [ "ocamllabs.ocaml-platform" ],
     "forwardPorts": [],
-    "mounts": ["source=${localEnv:HOME}/.ssh,target=/home/opam/.ssh,type=bind,readonly,consistency=cached"]
+    "mounts": []
 }
