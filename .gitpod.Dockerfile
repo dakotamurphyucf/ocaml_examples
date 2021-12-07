@@ -17,7 +17,7 @@ RUN eval $(opam env) && opam update
 RUN eval $(opam env) && ocaml -version
 
 RUN opam repo add janestreet-bleeding https://ocaml.janestreet.com/opam-repository#9e4f5d7
-RUN opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git#external-packages#216b932
+RUN opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git#216b932
 RUN opam update
 
 RUN opam install -y dune base merlin ocamlformat ocaml-lsp-server utop
