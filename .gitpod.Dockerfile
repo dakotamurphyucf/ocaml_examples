@@ -13,6 +13,7 @@ RUN echo '. /home/gitpod/.opam/opam-init/init.sh > /dev/null 2> /dev/null || tru
 RUN opam init --disable-sandboxing
 RUN eval $(opam env) && opam switch create 4.12.0
 RUN eval $(opam env) && opam update
+
 RUN eval $(opam env) && ocaml -version
 
 RUN opam repo add janestreet-bleeding https://ocaml.janestreet.com/opam-repository#9e4f5d7
