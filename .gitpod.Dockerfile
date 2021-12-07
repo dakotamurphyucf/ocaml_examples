@@ -14,7 +14,6 @@ RUN opam init --disable-sandboxing
 RUN eval $(opam env) && opam switch create 4.12.0
 RUN eval $(opam env) && opam update
 RUN eval $(opam env) && ocaml -version
-RUN eval $(opam env) && ocaml -version
 
 RUN opam repo add janestreet-bleeding https://ocaml.janestreet.com/opam-repository#9e4f5d7
 RUN opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git#external-packages#216b932
